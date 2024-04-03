@@ -1,6 +1,6 @@
 #include "config.h"
 
-#include "inspur_oem.hpp"
+#include "iei_oem.hpp"
 #include "mocked_sdbus.hpp"
 #include "mocked_utils.hpp"
 #include "sdbus_wrapper.hpp"
@@ -30,14 +30,14 @@ void ipmi_register_callback(ipmi_netfn_t, ipmi_cmd_t, ipmi_context_t,
     // Empty
 }
 
-class TestInspurIpmiOem : public ::testing::Test
+class TestIpmiOem : public ::testing::Test
 {
   public:
-    TestInspurIpmiOem() :
+    TestIpmiOem() :
         mockedUtils(
             reinterpret_cast<const utils::MockedUtils&>(utils::getUtils()))
     {}
-    virtual ~TestInspurIpmiOem()
+    virtual ~TestIpmiOem()
     {
         utils::freeUtils();
         clearMockedBus();
@@ -47,19 +47,19 @@ class TestInspurIpmiOem : public ::testing::Test
     const utils::MockedUtils& mockedUtils;
 };
 
-TEST_F(TestInspurIpmiOem, Empty)
+TEST_F(TestIpmiOem, Empty)
 {
     // Empty
 }
 
-TEST_F(TestInspurIpmiOem, parseBIOSInfoEmpty)
+TEST_F(TestIpmiOem, parseBIOSInfoEmpty)
 {
 
     EXPECT_CALL(mockedUtils, setPropertyImpl(_, _, _, _, _, _)).Times(0);
     ipmi::parseBIOSInfo({});
 }
 
-TEST_F(TestInspurIpmiOem, parseBIOSInfoValidBIOSVersion)
+TEST_F(TestIpmiOem, parseBIOSInfoValidBIOSVersion)
 {
 
     std::vector<uint8_t> data{

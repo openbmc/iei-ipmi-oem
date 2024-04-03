@@ -4,15 +4,15 @@
 #include <cstdint>
 #include <string_view>
 
-namespace inspur
+namespace iei
 {
 
-enum ipmi_inspur_net_fns
+enum ipmi_iei_net_fns
 {
-    NETFN_OEM_INSPUR = 0x3c,
+    NETFN_OEM_IEI = 0x3c,
 };
 
-enum inspur_oem_cmds
+enum iei_oem_cmds
 {
     CMD_OEM_ASSET_INFO = 0x01,
 };
@@ -46,4 +46,4 @@ constexpr std::array<std::string_view, 8> bios_devname{
     "BIOS", "ME", "IE", "PCH", "BOARD", "MRC", "CUSTOM_ID", "PCH_STEPPING",
 };
 
-} // namespace inspur
+} // namespace iei
