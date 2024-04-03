@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9009fd5d_0f64ed5a",
+        "filename": "OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-04-03T03:18:04Z",
+      "side": 1,
+      "message": "Please review the next patch.\nhttps://gerrit.openbmc.org/c/openbmc/iei-ipmi-oem/+/70550",
+      "parentUuid": "3ee597d3_24770bb5",
+      "revId": "666a8e0c467fd8b0ccc082572c8c5375f357aff5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3775de52_de3b688c",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-03T01:10:24Z",
       "side": 1,
       "message": "I think this repo still has the old template because it is supposed to be \"matchers\". Please update this.",
+      "revId": "666a8e0c467fd8b0ccc082572c8c5375f357aff5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85f2720f_56028487",
+        "filename": "OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-04-03T03:18:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3775de52_de3b688c",
       "revId": "666a8e0c467fd8b0ccc082572c8c5375f357aff5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
