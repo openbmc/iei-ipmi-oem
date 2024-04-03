@@ -6,10 +6,10 @@ configure_file(output: 'config.h',
 )
 test_inc = include_directories('.')
 
-test_inspur_ipmi_oem = executable(
-  'test_inspur-ipmi-oem',
-  '../src/inspur_oem.cpp',
-  'test_inspur_ipmi_oem.cpp',
+test_iei_ipmi_oem = executable(
+  'test_iei-ipmi-oem',
+  '../src/iei_oem.cpp',
+  'test_iei_ipmi_oem.cpp',
   'mocked_utils.cpp',
   'mocked_sdbus.cpp',
   include_directories: [test_inc, src_inc],
@@ -21,4 +21,4 @@ test_inspur_ipmi_oem = executable(
     sdbusplus,
   ])
 
-test('test_inspur-ipmi-oem', test_inspur_ipmi_oem)
+test('test_iei-ipmi-oem', test_iei_ipmi_oem)

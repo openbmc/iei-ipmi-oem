@@ -1,5 +1,5 @@
 project(
-    'inspur-ipmi-oem',
+    'iei-ipmi-oem',
     'cpp',
     default_options: [
         'warning_level=3',

@@ -7,8 +7,8 @@ src_inc = include_directories('.')
 so_version = '0.1.0'
 
 shared_library(
-  'inspur-ipmi-oem',
-  'inspur_oem.cpp',
+  'iei-ipmi-oem',
+  'iei_oem.cpp',
   'utils.cpp',
   'sdbus_wrapper.cpp',
   dependencies: [
