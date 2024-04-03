@@ -20,7 +20,7 @@
 #   * reviewers: A list of individuals who have requested review notification
 #     on the repository.
 #
-#   * matches: A list of specific file/path matches for granular 'owners' and
+#   * matchers: A list of specific file/path matchers for granular 'owners' and
 #     'reviewers'.  See 'owners' plugin documentation.
 #
 #   * openbmc: A list of openbmc-specific meta-data about owners and reviewers.
@@ -32,25 +32,21 @@
 # data within them will be kept sorted.
 
 owners:
-- chenqiuyi01@inspur.com
-- liuxiwei@inspur.com
-- yulei.sh@bytedance.com
-- wangzhiqiang02@inspur.com
+- chenqiuyi01@ieisystem.com
+- liuxiwei@ieisystem.com
+- wangzhiqiang02@ieisystem.com
 
 reviewers:
 
-matches:
+matchers:
 
 openbmc:
 - name: George Liu
-  email: liuxiwei@inspur.com
+  email: liuxiwei@ieisystem.com
   discord: George Liu
 - name: John Wang
-  email: wangzhiqiang02@inspur.com
+  email: wangzhiqiang02@ieisystem.com
   discord: wangzq
 - name: Kiuyi Chen
-  email: chenqiuyi01@inspur.com
+  email: chenqiuyi01@ieisystem.com
   discord:
-- name: Lei Yu
-  email: yulei.sh@bytedance.com
-  discord: LeiYu
