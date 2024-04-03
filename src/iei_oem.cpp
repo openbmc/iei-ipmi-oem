@@ -1,7 +1,6 @@
 #include "config.h"
 
-#include "inspur_oem.hpp"
-
+#include "iei_oem.hpp"
 #include "sdbus_wrapper.hpp"
 #include "utils.hpp"
 
@@ -33,7 +32,7 @@ namespace ipmi
 #define UNUSED(x) (void)(x)
 
 using namespace phosphor::logging;
-using namespace inspur;
+using namespace iei;
 
 static void registerOEMFunctions() __attribute__((constructor));
 static auto& bus = getBus();
@@ -146,11 +145,10 @@ void parseBIOSInfo(const std::vector<uint8_t>& data)
            buildTime.c_str());
 }
 
-ipmi_ret_t ipmiOemInspurAssetInfo(ipmi_netfn_t /* netfn */,
-                                  ipmi_cmd_t /* cmd */, ipmi_request_t request,
-                                  ipmi_response_t response,
-                                  ipmi_data_len_t /* data_len */,
-                                  ipmi_context_t /* context */)
+ipmi_ret_t ipmiOemIEIAssetInfo(ipmi_netfn_t /* netfn */, ipmi_cmd_t /* cmd */,
+                               ipmi_request_t request, ipmi_response_t response,
+                               ipmi_data_len_t /* data_len */,
+                               ipmi_context_t /* context */)
 {
     auto header = reinterpret_cast<AssetInfoHeader*>(request);
     uint8_t* res = reinterpret_cast<uint8_t*>(response);
@@ -172,8 +170,8 @@ ipmi_ret_t ipmiOemInspurAssetInfo(ipmi_netfn_t /* netfn */,
 
 void registerOEMFunctions(void)
 {
-    ipmi_register_callback(NETFN_OEM_INSPUR, CMD_OEM_ASSET_INFO, nullptr,
-                           ipmiOemInspurAssetInfo, SYSTEM_INTERFACE);
+    ipmi_register_callback(NETFN_OEM_IEI, CMD_OEM_ASSET_INFO, nullptr,
+                           ipmiOemIEIAssetInfo, SYSTEM_INTERFACE);
 }
 
 } // namespace ipmi
