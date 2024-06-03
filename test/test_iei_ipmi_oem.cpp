@@ -1,11 +1,12 @@
 #include "config.h"
 
 #include "iei_oem.hpp"
-#include "mocked_sdbus.hpp"
 #include "mocked_utils.hpp"
-#include "sdbus_wrapper.hpp"
 
 #include <ipmid/api.h>
+
+#include <ipmid/api.hpp>
+#include <sdbusplus/bus.hpp>
 
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
@@ -40,10 +41,8 @@ class TestIpmiOem : public ::testing::Test
     virtual ~TestIpmiOem()
     {
         utils::freeUtils();
-        clearMockedBus();
     }
 
-    sdbusplus::bus::bus& mockedBus = getBus();
     const utils::MockedUtils& mockedUtils;
 };
 
@@ -69,12 +68,14 @@ TEST_F(TestIpmiOem, parseBIOSInfoValidBIOSVersion)
 
     std::string dummyService = "com.test.bios.version";
     std::string expectedVersion = "01.01.01.01.01";
+
+    std::shared_ptr<sdbusplus::asio::connection> dbus = getSdBus();
     EXPECT_CALL(mockedUtils,
-                getService(_, StrEq(BIOS_OBJPATH), StrEq(VERSION_IFACE)))
+                getService(*dbus, StrEq(BIOS_OBJPATH), StrEq(VERSION_IFACE)))
         .WillOnce(Return(dummyService));
     EXPECT_CALL(
         mockedUtils,
-        setPropertyImpl(_, StrEq(dummyService), StrEq(BIOS_OBJPATH),
+        setPropertyImpl(*dbus, StrEq(dummyService), StrEq(BIOS_OBJPATH),
                         StrEq(VERSION_IFACE), StrEq(VERSION),
                         VariantWith<std::string>(StrEq(expectedVersion))))
         .Times(1);
