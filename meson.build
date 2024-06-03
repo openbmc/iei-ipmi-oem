@@ -26,8 +26,3 @@ cdata.set_quoted('VERSION', 'Version')
 cdata.set_quoted('BIOS_OBJPATH', get_option('BIOS_OBJPATH'))
 
 subdir('src')
-
-build_tests = get_option('tests')
-if not build_tests.disabled()
-  subdir('test')
-endif
