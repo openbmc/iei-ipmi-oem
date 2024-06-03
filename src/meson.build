@@ -10,7 +10,6 @@ shared_library(
   'iei-ipmi-oem',
   'iei_oem.cpp',
   'utils.cpp',
-  'sdbus_wrapper.cpp',
   dependencies: [
     phosphor_dbus_interfaces,
     phosphor_logging,
