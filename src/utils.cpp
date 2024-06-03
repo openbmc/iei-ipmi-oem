@@ -1,10 +1,8 @@
 #include "utils.hpp"
 
-#include <phosphor-logging/log.hpp>
+#include <phosphor-logging/lg2.hpp>
 
 #include <algorithm>
-
-using namespace phosphor::logging;
 
 namespace utils
 {
@@ -50,7 +48,7 @@ std::vector<std::string> Utils::getServices(sdbusplus::bus::bus& bus,
         mapperResponseMsg.read(mapperResponse);
         if (mapperResponse.empty())
         {
-            log<level::ERR>("Error reading mapper response");
+            lg2::error("Error reading mapper response");
             throw std::runtime_error("Error reading mapper response");
         }
         std::vector<std::string> ret;
@@ -62,8 +60,9 @@ std::vector<std::string> Utils::getServices(sdbusplus::bus::bus& bus,
     }
     catch (const sdbusplus::exception::SdBusError& ex)
     {
-        log<level::ERR>("GetObject call failed", entry("PATH=%s", path),
-                        entry("INTERFACE=%s", interface));
+        lg2::error(
+            "GetObject call failed, path: {PATH}, interface: {INTERFACE}",
+            "PATH", path, "INTERFACE", interface);
         throw std::runtime_error("GetObject call failed");
     }
 }
@@ -84,9 +83,9 @@ any Utils::getPropertyImpl(sdbusplus::bus::bus& bus, const char* service,
     }
     catch (const sdbusplus::exception::SdBusError& ex)
     {
-        log<level::ERR>("GetProperty call failed", entry("PATH=%s", path),
-                        entry("INTERFACE=%s", interface),
-                        entry("PROPERTY=%s", propertyName));
+        lg2::error(
+            "GetProperty call failed, path: {PATH}, interface: {INTERFACE}, property: {PROPERTY}",
+            "PATH", path, "INTERFACE", interface, "PROPERTY", propertyName);
         throw std::runtime_error("GetProperty call failed");
     }
 }
@@ -104,9 +103,9 @@ void Utils::setPropertyImpl(sdbusplus::bus::bus& bus, const char* service,
     }
     catch (const sdbusplus::exception::SdBusError& ex)
     {
-        log<level::ERR>("SetProperty call failed", entry("PATH=%s", path),
-                        entry("INTERFACE=%s", interface),
-                        entry("PROPERTY=%s", propertyName));
+        lg2::error(
+            "SetProperty call failed, path: {PATH}, interface: {INTERFACE}, property: {PROPERTY}",
+            "PATH", path, "INTERFACE", interface, "PROPERTY", propertyName);
         throw std::runtime_error("SetProperty call failed");
     }
 }

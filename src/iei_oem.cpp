@@ -7,7 +7,7 @@
 
 #include <ipmid/api.h>
 
-#include <phosphor-logging/log.hpp>
+#include <phosphor-logging/lg2.hpp>
 
 #include <optional>
 
@@ -32,7 +32,6 @@ namespace ipmi
 
 #define UNUSED(x) (void)(x)
 
-using namespace phosphor::logging;
 using namespace iei;
 
 static void registerOEMFunctions() __attribute__((constructor));
@@ -159,7 +158,8 @@ ipmi_ret_t ipmiOemIEIAssetInfo(ipmi_netfn_t /* netfn */, ipmi_cmd_t /* cmd */,
     auto deviceType = info->deviceType;
     if (deviceType != 0x05)
     {
-        log<level::WARNING>("Device type not supported yet");
+        lg2::info("Device type ({DEVICE_TYPE}) not supported yet",
+                  "DEVICE_TYPE", deviceType);
         return IPMI_CC_UNSPECIFIED_ERROR;
     }
 
