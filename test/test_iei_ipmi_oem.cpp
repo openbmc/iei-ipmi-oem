@@ -1,11 +1,11 @@
 #include "config.h"
 
 #include "iei_oem.hpp"
-#include "mocked_sdbus.hpp"
 #include "mocked_utils.hpp"
-#include "sdbus_wrapper.hpp"
 
 #include <ipmid/api.h>
+
+#include <sdbusplus/bus.hpp>
 
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
@@ -40,10 +40,8 @@ class TestIpmiOem : public ::testing::Test
     virtual ~TestIpmiOem()
     {
         utils::freeUtils();
-        clearMockedBus();
     }
 
-    sdbusplus::bus::bus& mockedBus = getBus();
     const utils::MockedUtils& mockedUtils;
 };
 
