@@ -2,12 +2,11 @@
 
 #include "iei_oem.hpp"
 
-#include "sdbus_wrapper.hpp"
 #include "utils.hpp"
 
-#include <ipmid/api.h>
-
+#include <ipmid/api.hpp>
 #include <phosphor-logging/lg2.hpp>
+#include <sdbusplus/bus.hpp>
 
 #include <optional>
 
@@ -35,7 +34,6 @@ namespace ipmi
 using namespace iei;
 
 static void registerOEMFunctions() __attribute__((constructor));
-static auto& bus = getBus();
 
 struct ParsedAssetInfo
 {
@@ -134,10 +132,20 @@ void parseBIOSInfo(const std::vector<uint8_t>& data)
                              data.data() + FIRMWARE_BUILDTIME_OFFSET),
                          FIRMWARE_BUILDTIME_SIZE);
 
-        // Set BIOS version
-        auto service = utils::getService(bus, BIOS_OBJPATH, VERSION_IFACE);
-        utils::setProperty(bus, service.c_str(), BIOS_OBJPATH, VERSION_IFACE,
-                           VERSION, version);
+        try
+        {
+            // Set BIOS version
+            std::shared_ptr<sdbusplus::asio::connection> dbus = getSdBus();
+            auto service = utils::getService(*dbus, BIOS_OBJPATH,
+                                             VERSION_IFACE);
+            utils::setProperty(*dbus, service.c_str(), BIOS_OBJPATH,
+                               VERSION_IFACE, VERSION, version);
+        }
+        catch (const std::exception& e)
+        {
+            lg2::error("Failed to set BIOS version: {VERSION}, error: {ERROR}",
+                       "VERSION", version, "ERROR", e);
+        }
     }
 
     printf("Dev %s, version %s, build time %s\n",

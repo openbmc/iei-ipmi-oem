@@ -11,7 +11,6 @@ test_iei_ipmi_oem = executable(
   '../src/iei_oem.cpp',
   'test_iei_ipmi_oem.cpp',
   'mocked_utils.cpp',
-  'mocked_sdbus.cpp',
   include_directories: [test_inc, src_inc],
   dependencies: [
     gtest,
@@ -19,6 +18,7 @@ test_iei_ipmi_oem = executable(
     phosphor_logging,
     phosphor_dbus_interfaces,
     sdbusplus,
+    libipmid,
   ])
 
 test('test_iei-ipmi-oem', test_iei_ipmi_oem)
