@@ -10,6 +10,7 @@ shared_library(
   'iei-ipmi-oem',
   'asset_info.cpp',
   'utils.cpp',
+  'firmware_version.cpp',
   dependencies: [
     phosphor_dbus_interfaces,
     phosphor_logging,
