@@ -11,7 +11,7 @@ namespace iei
 {
 
 constexpr ipmi::Cmd cmdSetAssetInfo = 0x01;
-constexpr ipmi::Cmd cmdGetBMCFWInfo = 0x37;
+constexpr ipmi::Cmd cmdGetFWVersion = 0x03;
 
 } // namespace iei
 
