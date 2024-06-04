@@ -9,6 +9,7 @@ so_version = '0.1.0'
 shared_library(
   'iei-ipmi-oem',
   'asset_info.cpp',
+  'utils.cpp',
   dependencies: [
     phosphor_dbus_interfaces,
     phosphor_logging,
