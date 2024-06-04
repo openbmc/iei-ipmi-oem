@@ -8,6 +8,7 @@ so_version = '0.1.0'
 
 sources = [
   'asset_info.cpp',
+  'utils.cpp',
 ]
 
 deps = [
