@@ -7,7 +7,7 @@ src_inc = include_directories('.')
 so_version = '0.1.0'
 
 sources = [
-  'iei_oem.cpp',
+  'asset_info.cpp',
 ]
 
 deps = [
