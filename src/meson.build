@@ -7,7 +7,7 @@ src_inc = include_directories('.')
 so_version = '0.1.0'
 
 sources = [
-  'iei_oem.cpp',
+  'asset_info.cpp',
 ]
 
 deps = [
@@ -21,6 +21,11 @@ shared_library(
   'iei-ipmi-oem',
   sources,
   dependencies: deps,
+  dependencies: [
+    phosphor_dbus_interfaces,
+    phosphor_logging,
+    libipmid,
+  ],
   version: so_version,
   install: true,
   install_dir: get_option('libdir') / 'ipmid-providers'

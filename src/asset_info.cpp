@@ -1,6 +1,6 @@
 #include "config.h"
 
-#include "iei_oem.hpp"
+#include "types.hpp"
 
 #include <ipmid/api.hpp>
 #include <ipmid/utils.hpp>
@@ -28,11 +28,36 @@ static_assert(FIRMWARE_BUILDTIME_OFFSET == 16);
 namespace ipmi
 {
 
-#define UNUSED(x) (void)(x)
-
-using namespace iei;
-
 static void registerOEMFunctions() __attribute__((constructor));
+
+struct AssetInfoHeader
+{
+    uint8_t rwFlag;
+    uint8_t deviceType;
+    uint8_t infoType;
+    uint8_t maskAllPresentLen;
+    uint8_t enableStatus;
+    uint8_t maskPresent;
+    uint8_t maskAllPresent;
+    uint8_t allInfoDone;
+    uint16_t totalMessageLen;
+} __attribute__((packed));
+
+enum class bios_version_devname
+{
+    BIOS = 0,
+    ME = 1,
+    IE = 2,
+    PCH = 3,
+    BOARD = 4,
+    MRC = 5,
+    CUSTOM_ID = 6,
+    PCH_STEPPING = 7,
+};
+
+constexpr std::array<std::string_view, 8> bios_devname{
+    "BIOS", "ME", "IE", "PCH", "BOARD", "MRC", "CUSTOM_ID", "PCH_STEPPING",
+};
 
 struct ParsedAssetInfo
 {
@@ -152,13 +177,12 @@ void parseBIOSInfo(const std::vector<uint8_t>& data)
 }
 
 ipmi_ret_t ipmiOemIEIAssetInfo(ipmi_netfn_t /* netfn */, ipmi_cmd_t /* cmd */,
-                               ipmi_request_t request, ipmi_response_t response,
+                               ipmi_request_t request,
+                               ipmi_response_t /* response */,
                                ipmi_data_len_t /* data_len */,
                                ipmi_context_t /* context */)
 {
     auto header = reinterpret_cast<AssetInfoHeader*>(request);
-    uint8_t* res = reinterpret_cast<uint8_t*>(response);
-    UNUSED(res);
 
     auto info = parseAssetInfo(header);
     auto deviceType = info->deviceType;
@@ -177,7 +201,7 @@ ipmi_ret_t ipmiOemIEIAssetInfo(ipmi_netfn_t /* netfn */, ipmi_cmd_t /* cmd */,
 
 void registerOEMFunctions(void)
 {
-    ipmi_register_callback(NETFN_OEM_IEI, CMD_OEM_ASSET_INFO, nullptr,
+    ipmi_register_callback(netFnIei, iei::cmdSetAssetInfo, nullptr,
                            ipmiOemIEIAssetInfo, SYSTEM_INTERFACE);
 }
 
