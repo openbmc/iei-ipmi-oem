@@ -201,7 +201,7 @@ ipmi_ret_t ipmiOemIEIAssetInfo(ipmi_netfn_t /* netfn */, ipmi_cmd_t /* cmd */,
 
 void registerOEMFunctions(void)
 {
-    ipmi_register_callback(netFnIei, iei::cmdSetAssetInfo, nullptr,
+    ipmi_register_callback(netFnIEI, iei::cmdSetAssetInfo, nullptr,
                            ipmiOemIEIAssetInfo, SYSTEM_INTERFACE);
 }
 

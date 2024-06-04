@@ -4,14 +4,14 @@
 namespace ipmi
 {
 
-constexpr ipmi::NetFn netFnIei = 0x3C;
+constexpr ipmi::NetFn netFnIEI = 0x3C;
 constexpr ipmi::NetFn netFnIntelMe = 0x30;
 
 namespace iei
 {
 
 constexpr ipmi::Cmd cmdSetAssetInfo = 0x01;
-constexpr ipmi::Cmd cmdGetBMCFWInfo = 0x37;
+constexpr ipmi::Cmd cmdGetFWVersion = 0x03;
 
 } // namespace iei
 
