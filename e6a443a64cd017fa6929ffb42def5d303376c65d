@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c75db88f_67b7e30f",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-05T01:48:21Z",
+      "side": 1,
+      "message": "Please rebase this patch:\nhttps://gerrit.openbmc.org/c/openbmc/iei-ipmi-oem/+/71784\n\nand then add subprojects.\n```\nbuild*/\nsubprojects/*\n!subprojects/*.wrap\n```",
+      "revId": "e6a443a64cd017fa6929ffb42def5d303376c65d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
