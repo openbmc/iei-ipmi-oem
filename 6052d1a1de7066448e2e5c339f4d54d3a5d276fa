@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "378b2a67_5dc945fd",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T02:03:07Z",
+      "side": 1,
+      "message": "can we use this method?\n\n```\n\ntemplate \u003ctypename Type\u003e\nCc getDbusProperty(Context::ptr ctx, const std::string\u0026 objPath,\n                   const std::string\u0026 interface, const std::string\u0026 property,\n                   Type\u0026 propertyValue)\n```",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8946492_4ccb92b7",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T02:03:07Z",
+      "side": 1,
+      "message": "as above",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 61
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e1aea18_c02a5170",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T02:03:07Z",
+      "side": 1,
+      "message": "Move to L: 14 or move to types.hpp?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 2
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "533ad361_a4beb25d",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T02:03:07Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 77,
+        "startChar": 41,
+        "endLine": 77,
+        "endChar": 63
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ece91173_702c64f2",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T02:03:07Z",
+      "side": 1,
+      "message": "ipmiOemIEIGetFwVersion",
+      "range": {
+        "startLine": 106,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 68
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "285847b8_7b61ca30",
+        "filename": "src/meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T02:03:07Z",
+      "side": 1,
+      "message": "sort by alphabetical order",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 25
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
