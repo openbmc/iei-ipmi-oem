@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34284af0_e3db75b5",
+        "filename": "src/utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T01:28:05Z",
+      "side": 1,
+      "message": "Nit: add space",
+      "range": {
+        "startLine": 14,
+        "startChar": 48,
+        "endLine": 14,
+        "endChar": 49
+      },
+      "revId": "f6bc20c26212b406af7fd319d48f1235533d04bc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a66f21e_35412386",
+        "filename": "src/utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T01:28:05Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 30,
+        "startChar": 41,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "f6bc20c26212b406af7fd319d48f1235533d04bc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88c179f8_9ca28844",
+        "filename": "src/utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T01:28:05Z",
+      "side": 1,
+      "message": "No need for line breaks",
+      "range": {
+        "startLine": 31,
+        "startChar": 18,
+        "endLine": 31,
+        "endChar": 41
+      },
+      "revId": "f6bc20c26212b406af7fd319d48f1235533d04bc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b0a1f7_e5db1fd6",
+        "filename": "src/utils.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T01:28:05Z",
+      "side": 1,
+      "message": "Nit: rc",
+      "range": {
+        "startLine": 78,
+        "startChar": 9,
+        "endLine": 78,
+        "endChar": 10
+      },
+      "revId": "f6bc20c26212b406af7fd319d48f1235533d04bc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f4976a3_47925fd0",
+        "filename": "src/utils.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000397
+      },
+      "writtenOn": "2024-06-06T01:28:05Z",
+      "side": 1,
+      "message": "please move to L:47",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 1
+      },
+      "revId": "f6bc20c26212b406af7fd319d48f1235533d04bc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
