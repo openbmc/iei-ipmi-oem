@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c62214ab_7a603df5",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2024-06-06T11:26:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "378b2a67_5dc945fd",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8946492_4ccb92b7",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-06T02:03:07Z",
       "side": 1,
       "message": "as above",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 61
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9f9cef4_26a0bacf",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2024-06-06T11:26:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8946492_4ccb92b7",
       "range": {
         "startLine": 60,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d79e8e0_292f4869",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2024-06-06T11:26:19Z",
+      "side": 1,
+      "message": "Maybe let it close to the fucntion~",
+      "parentUuid": "4e1aea18_c02a5170",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 2
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "533ad361_a4beb25d",
@@ -93,6 +165,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85d144ca_17086d40",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2024-06-06T11:26:19Z",
+      "side": 1,
+      "message": "Our ipmi command manual states that this parameter is needed, currently we just ignore the parameter and the code related to indexing bmc flash/bios flash/cpld is not upstreamed.",
+      "parentUuid": "533ad361_a4beb25d",
+      "range": {
+        "startLine": 77,
+        "startChar": 41,
+        "endLine": 77,
+        "endChar": 63
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ece91173_702c64f2",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-06-06T02:03:07Z",
       "side": 1,
       "message": "ipmiOemIEIGetFwVersion",
+      "range": {
+        "startLine": 106,
+        "startChar": 49,
+        "endLine": 106,
+        "endChar": 68
+      },
+      "revId": "6052d1a1de7066448e2e5c339f4d54d3a5d276fa",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b7c66a2_41d2b4f4",
+        "filename": "src/firmware_version.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000305
+      },
+      "writtenOn": "2024-06-06T11:26:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece91173_702c64f2",
       "range": {
         "startLine": 106,
         "startChar": 49,
