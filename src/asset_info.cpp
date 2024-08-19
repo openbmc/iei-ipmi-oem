@@ -13,11 +13,11 @@ namespace
 {
 constexpr auto FIRMWARE_TYPE_OFFSET = 0;
 constexpr auto FIRMWARE_TYPE_SIZE = 1;
-constexpr auto FIRMWARE_VERSION_OFFSET = FIRMWARE_TYPE_OFFSET +
-                                         FIRMWARE_TYPE_SIZE;
+constexpr auto FIRMWARE_VERSION_OFFSET =
+    FIRMWARE_TYPE_OFFSET + FIRMWARE_TYPE_SIZE;
 constexpr auto FIRMWARE_VERSION_SIZE = 15;
-constexpr auto FIRMWARE_BUILDTIME_OFFSET = FIRMWARE_VERSION_OFFSET +
-                                           FIRMWARE_VERSION_SIZE;
+constexpr auto FIRMWARE_BUILDTIME_OFFSET =
+    FIRMWARE_VERSION_OFFSET + FIRMWARE_VERSION_SIZE;
 constexpr auto FIRMWARE_BUILDTIME_SIZE = 20;
 constexpr auto FIRMWARE_MIN_SIZE = FIRMWARE_BUILDTIME_OFFSET;
 
@@ -176,11 +176,10 @@ void parseBIOSInfo(const std::vector<uint8_t>& data)
            buildTime.c_str());
 }
 
-ipmi_ret_t ipmiOemIEIAssetInfo(ipmi_netfn_t /* netfn */, ipmi_cmd_t /* cmd */,
-                               ipmi_request_t request,
-                               ipmi_response_t /* response */,
-                               ipmi_data_len_t /* data_len */,
-                               ipmi_context_t /* context */)
+ipmi_ret_t ipmiOemIEIAssetInfo(
+    ipmi_netfn_t /* netfn */, ipmi_cmd_t /* cmd */, ipmi_request_t request,
+    ipmi_response_t /* response */, ipmi_data_len_t /* data_len */,
+    ipmi_context_t /* context */)
 {
     auto header = reinterpret_cast<AssetInfoHeader*>(request);
 

@@ -56,9 +56,8 @@ enum FirmwareType : uint8_t
     BIOS = 0x03,
 };
 
-RspType<std::string> ipmiIEIGetFWVersion(ipmi::Context::ptr ctx,
-                                         uint8_t fwIndex,
-                                         uint8_t /* devIndex */)
+RspType<std::string> ipmiIEIGetFWVersion(
+    ipmi::Context::ptr ctx, uint8_t fwIndex, uint8_t /* devIndex */)
 {
     std::string fwPath{};
     std::string value{};
