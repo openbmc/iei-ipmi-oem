@@ -1,0 +1,7 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: George Liu <liuxiwei@ieisystem.com>
+Submitted-by: George Liu <liuxiwei@ieisystem.com>
+Submitted-at: Fri, 17 Jan 2025 09:01:35 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/iei-ipmi-oem/+/77290
+Project: openbmc/iei-ipmi-oem
+Branch: refs/heads/master
