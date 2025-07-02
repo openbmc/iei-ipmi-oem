@@ -189,13 +189,13 @@ ipmi_ret_t ipmiOemIEIAssetInfo(
     {
         lg2::info("Device type ({DEVICE_TYPE}) not supported yet",
                   "DEVICE_TYPE", deviceType);
-        return IPMI_CC_UNSPECIFIED_ERROR;
+        return ipmi::ccUnspecifiedError;
     }
 
     // For now we only support BIOS type
     parseBIOSInfo(info->data);
 
-    return IPMI_CC_OK;
+    return ipmi::ccSuccess;
 }
 
 void registerOEMFunctions(void)
