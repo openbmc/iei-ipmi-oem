@@ -10,7 +10,6 @@ constexpr ipmi::NetFn netFnIntelMe = 0x30;
 namespace iei
 {
 
-constexpr ipmi::Cmd cmdSetAssetInfo = 0x01;
 constexpr ipmi::Cmd cmdGetFWVersion = 0x03;
 
 // power
