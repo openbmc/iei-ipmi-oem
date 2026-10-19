@@ -1,3 +1,5 @@
+#include "config.h"
+
 #include "types.hpp"
 #include "utils.hpp"
 
@@ -14,12 +16,12 @@ namespace firmware_version
 
 void registerIEIFirmwareVersionFunctions() __attribute__((constructor));
 
-static constexpr auto versionInterface = "xyz.openbmc_project.Software.Version";
+static constexpr auto versionInterface = VERSION_IFACE;
 
 Cc getBMCVersionValue(ipmi::Context::ptr ctx, const std::string& objPath,
                       const std::string& interface, std::string& version)
 {
-    auto cc = iei::getDbusProperty(ctx, objPath, interface, "Version", version);
+    auto cc = iei::getDbusProperty(ctx, objPath, interface, VERSION, version);
     if (cc)
     {
         return cc;
@@ -68,7 +70,7 @@ RspType<std::string> ipmiIEIGetFWVersion(
         }
         case BIOS:
         {
-            fwPath = "/xyz/openbmc_project/software/bios_active";
+            fwPath = BIOS_OBJPATH;
             cc = getFWVersionValue(ctx, fwPath, versionInterface, value);
             break;
         }
