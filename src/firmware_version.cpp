@@ -16,38 +16,33 @@ void registerIEIFirmwareVersionFunctions() __attribute__((constructor));
 
 static constexpr auto versionInterface = "xyz.openbmc_project.Software.Version";
 
-std::string getBMCVersionValue(ipmi::Context::ptr ctx,
-                               const std::string& objPath,
-                               const std::string& interface)
+Cc getBMCVersionValue(ipmi::Context::ptr ctx, const std::string& objPath,
+                      const std::string& interface, std::string& version)
 {
-    std::string value{};
-    auto cc = iei::getDbusProperty(ctx, objPath, interface, "Version", value);
+    auto cc = iei::getDbusProperty(ctx, objPath, interface, "Version", version);
     if (cc)
     {
-        return "";
+        return cc;
     }
 
     const std::regex patternId("v[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}");
     std::smatch result;
-    if (!std::regex_search(value, result, patternId))
+    if (!std::regex_search(version, result, patternId))
     {
-        return "";
+        lg2::error(
+            "The BMC version does not contain a version number, VERSION = {VERSION}",
+            "VERSION", version);
+        return ccUnspecifiedError;
     }
-    std::string versionStr = result[0];
-    return versionStr.substr(1);
+    version = result[0];
+    version.erase(0, 1);
+    return ccSuccess;
 }
 
-std::string getFWVersionValue(ipmi::Context::ptr ctx,
-                              const std::string& objPath,
-                              const std::string& interface)
+Cc getFWVersionValue(ipmi::Context::ptr ctx, const std::string& objPath,
+                     const std::string& interface, std::string& version)
 {
-    std::string value{};
-    auto cc = iei::getDbusProperty(ctx, objPath, interface, "Version", value);
-    if (cc)
-    {
-        return "";
-    }
-    return value;
+    return iei::getDbusProperty(ctx, objPath, interface, "Version", version);
 }
 
 enum FirmwareType : uint8_t
@@ -61,23 +56,29 @@ RspType<std::string> ipmiIEIGetFWVersion(
 {
     std::string fwPath{};
     std::string value{};
+    Cc cc = ccSuccess;
 
     switch (fwIndex)
     {
         case BMC:
         {
             fwPath = "/xyz/openbmc_project/software/bmc_active";
-            value = getBMCVersionValue(ctx, fwPath, versionInterface);
+            cc = getBMCVersionValue(ctx, fwPath, versionInterface, value);
             break;
         }
         case BIOS:
         {
             fwPath = "/xyz/openbmc_project/software/bios_active";
-            value = getFWVersionValue(ctx, fwPath, versionInterface);
+            cc = getFWVersionValue(ctx, fwPath, versionInterface, value);
             break;
         }
         default:
             return ipmi::responseParmOutOfRange();
+    }
+
+    if (cc)
+    {
+        return ipmi::response(cc);
     }
 
     return ipmi::responseSuccess(value);
