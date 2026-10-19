@@ -25,7 +25,7 @@ Cc getBMCVersionValue(ipmi::Context::ptr ctx, const std::string& objPath,
         return cc;
     }
 
-    const std::regex patternId("v[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}");
+    const std::regex patternId("v[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}");
     std::smatch result;
     if (!std::regex_search(version, result, patternId))
     {
