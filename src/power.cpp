@@ -23,7 +23,8 @@ static constexpr auto powerRestoreDelayProp = "PowerRestoreDelay";
 RspType<> ipmiIEISetPowerDelay(ipmi::Context::ptr ctx,
                                uint16_t powerRestoreDelay)
 {
-    uint64_t powerRestoreDelayInUs = powerRestoreDelay * 1000 * 1000;
+    uint64_t powerRestoreDelayInUs =
+        static_cast<uint64_t>(powerRestoreDelay) * 1000 * 1000;
 
     auto ec = iei::setDbusProperty(
         ctx, settingsService, powerRestorePolicyPath, powerRestorePolicyIface,
